@@ -7,10 +7,10 @@ import blogRoute from './routes/blog.route.js'
 import fileUpload from "express-fileupload";
 import { v2 as cloudinary } from 'cloudinary';
 import cookieParser from "cookie-parser";
-
+import cors  from 'cors'
 const app = express();
 dotenv.config();
-
+app.use(cors());
 const port = process.env.PORT
 const mongo_url = process.env.MONGO_URL;
 
