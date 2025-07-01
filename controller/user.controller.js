@@ -16,9 +16,11 @@ export const register = async (req, res) => {
             return res.status(400).json({ message: "Invalid photo format. Only JPG, PNG, and WEBP allowed." });
         }
 
-        const { name, email, phone, role, password, education } = req.body;
+        const { name, email, phone, role, password } = req.body;
+        // const { name, email, phone, role, password, education } = req.body;
 
-        if (!name || !email || !phone || !role || !password || !education) {
+        // if (!name || !email || !phone || !role || !password || !education) {
+        if (!name || !email || !phone || !role || !password ) {
             return res.status(400).json({ message: "Please fill all required fields." });
         }
 
@@ -41,7 +43,7 @@ export const register = async (req, res) => {
             email,
             password: hashPassword,
             phone,
-            education,
+            // education,
             role,
             photo: {
                 public_id: cloudinaryResponse.public_id,

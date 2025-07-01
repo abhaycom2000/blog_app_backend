@@ -22,7 +22,7 @@ export const createBlog = async (req, res) => {
         }
 
         const adminName = req?.user?.name;
-        const adminImage = req?.user?.photo;
+        const adminImage = req?.user?.photo.url;
         const createdBy = req?.user?._id;
 
         const cloudinaryResponse = await cloudinary.uploader.upload(blogImage.tempFilePath, {

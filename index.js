@@ -10,7 +10,20 @@ import cookieParser from "cookie-parser";
 import cors  from 'cors'
 const app = express();
 dotenv.config();
-app.use(cors());
+// app.use(cors(
+//     //     {
+//     //     origin:process.env.FRONTEND_URL,
+//     //     credentials:true,
+//     //     methods:["GET","POST","PUT","DELETE"]
+//     // }
+// ));
+app.use(
+    cors({
+        origin: 'http://localhost:3000', // Frontend URL
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true,  // Allow cookies to be sent
+    })
+);
 const port = process.env.PORT
 const mongo_url = process.env.MONGO_URL;
 
